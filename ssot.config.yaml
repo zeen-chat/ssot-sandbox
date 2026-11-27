@@ -1,0 +1,7 @@
+version: 1
+project: ssot-sandbox
+collections:
+  - name: demo-cards
+    path: product/modules/**/[A-Z]*-*.md
+    role: intent
+    type: req-card

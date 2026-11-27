@@ -1,0 +1,12 @@
+name: ssot-check
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  ssot-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify sandbox config exists
+        run: test -f ssot.config.yaml && test -f product/modules/DEMO/DEMO-01-示例条目.md

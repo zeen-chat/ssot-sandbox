@@ -1,12 +1,33 @@
 name: ssot-check
+
 on:
   pull_request:
   push:
     branches: [main]
+
+permissions:
+  contents: read
+
 jobs:
   ssot-check:
+    name: ssot-check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify sandbox config exists
-        run: test -f ssot.config.yaml && test -f product/modules/DEMO/DEMO-01-示例条目.md
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Load read-only SSH key for ssot-cli
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSOT_CLI_KEY }}
+
+      - name: Install @zeen-chat/ssot@v0.2.0-draft.2
+        run: npm ci
+
+      - name: Run ssot check
+        run: npx --no-install ssot check

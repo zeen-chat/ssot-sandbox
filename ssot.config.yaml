@@ -1,7 +1,27 @@
 version: 1
-project: ssot-sandbox
 collections:
   - name: demo-cards
-    path: product/modules/**/[A-Z]*-*.md
+    dir: product/modules
     role: intent
-    type: req-card
+    type: demo-card
+    test_required: true
+    include:
+      - "**/DEMO-*.md"
+  - name: demo-specs
+    dir: product/specs
+    role: blueprint
+    type: demo-spec
+    test_required: true
+    include:
+      - "**/DEMO-*.md"
+  - name: glossary
+    dir: product
+    role: intent
+    type: glossary
+    test_required: false
+    include:
+      - "glossary.md"
+terminology:
+  rules: product/terminology-prh.yml
+  exclude:
+    - "product/glossary.md"

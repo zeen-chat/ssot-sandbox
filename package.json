@@ -1,0 +1,13 @@
+{
+  "name": "ssot-sandbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Public fictional sandbox repository for SSoT workflow drills",
+  "scripts": {
+    "check": "ssot check",
+    "ssot": "ssot"
+  },
+  "devDependencies": {
+    "@zeen-chat/ssot": "git+ssh://git@github.com/zeen-chat/ssot-cli.git#v0.2.0-draft.2"
+  }
+}

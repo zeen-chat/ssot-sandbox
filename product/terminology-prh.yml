@@ -1,0 +1,6 @@
+version: 1
+rules:
+  - expected: 待办项
+    pattern: 任务条
+  - expected: 清单
+    pattern: 列表集

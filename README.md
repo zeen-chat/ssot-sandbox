@@ -51,10 +51,10 @@
 # 目录：/tmp/ssot-drill-consumer
 cd /tmp/ssot-drill-consumer
 npx ssot status
-npx ssot verify
+npx ssot verify --base main
 ```
 
-应该看到 `ssot status` 提示已是最新、`ssot verify` 汇总为错误 0、告警 0。
+应该看到 `ssot status` 提示已是最新、`ssot verify --base main` 汇总为错误 0、告警 0（不传 `--base` 时会多一条提示 CI 应传入 `--base` 的告警，属正常现象）。
 
 > **演练顺序提示**：完成 **A-1、A-2**（建出处于 `OPEN` 状态的演练 PR）与 **A-3、A-4** 后，建议**先执行 C 节（C-1～C-6）** 复用同一个未合并的演练 PR，再回来执行 **A-5** 完成人工批准与合并；若先跑完 A-5，做 C 节前重新跑一次 A-2 建一个新演练 PR 即可。
 
@@ -258,10 +258,11 @@ git ls-remote --heads https://github.com/zeen-chat/ssot-sandbox.git 'refs/heads/
 git push git@github.com:zeen-chat/ssot-sandbox.git --delete <分支名>
 ```
 
-3. **清理本地临时夹具目录与终端环境变量**：
+3. **清理本地临时夹具目录与终端环境变量**（`.ssot/` 由 `ssot sync` 设为只读权限，删除前需先恢复写权限）：
 
 ```bash
 unset SSOT_BOT_TOKEN
+chmod -R u+w /tmp/ssot-drill-consumer/.ssot 2>/dev/null || true
 rm -rf /tmp/ssot-drill-consumer
 ```
 

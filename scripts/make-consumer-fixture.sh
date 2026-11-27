@@ -14,7 +14,7 @@ fi
 
 SANDBOX_REPO="${SSOT_SANDBOX_REPO:-https://github.com/zeen-chat/ssot-sandbox.git}"
 SANDBOX_BRANCH="${SSOT_SANDBOX_BRANCH:-main}"
-SSOT_CLI_SPEC="${SSOT_CLI_SPEC:-git+ssh://git@github.com/zeen-chat/ssot-cli.git#v0.2.0-draft.2}"
+SSOT_CLI_SPEC="${SSOT_CLI_SPEC:-git+ssh://git@github.com/zeen-chat/ssot-cli.git#v0.2.0-draft.3}"
 
 echo "正在查询演习仓 ${SANDBOX_REPO} 分支 ${SANDBOX_BRANCH} 的最新提交..."
 LOCKED_COMMIT="$(git ls-remote "$SANDBOX_REPO" "refs/heads/${SANDBOX_BRANCH}" | awk 'NR==1 {print $1}')"

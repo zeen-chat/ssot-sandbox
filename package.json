@@ -8,6 +8,6 @@
     "ssot": "ssot"
   },
   "devDependencies": {
-    "@zeen-chat/ssot": "git+ssh://git@github.com/zeen-chat/ssot-cli.git#v0.2.0-draft.2"
+    "@zeen-chat/ssot": "git+ssh://git@github.com/zeen-chat/ssot-cli.git#v0.2.0-draft.3"
   }
 }
